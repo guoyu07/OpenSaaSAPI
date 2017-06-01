@@ -1,0 +1,12 @@
+python
+NAME: gunicorn
+INSTALL: pip install gunicorn
+EXAMPLE: nohup gunicorn --env DJANGO_SETTINGS_MODULE=jhddgapi.settings jhddgapi.wsgi -b 0.0.0.0:8090 --chdir /data/py/jhddgapi --access-logfile /data/py/jhddgapi/logs/access.log --error-logfile /data/py/jhddgapi/logs/err.log >> /data/py/jhddgapi/logs/gunicorn.logs 2>&1 &
+
+
+NAME: Django REST framework
+INSTALL:
+pip install djangorestframework
+pip install markdown       # Markdown support for the browsable API.
+pip install django-filter  # Filtering support
+EXAMPLE: *

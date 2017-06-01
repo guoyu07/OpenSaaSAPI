@@ -1,0 +1,341 @@
+'''
+Copyright (C) 2015 Jacques de Hooge, Geatec Engineering, www.geatec.com
+
+This program is free software.
+You can use, redistribute and/or modify it, but only under the terms stated in the QQuickLicence.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY, without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the QQuickLicence at www.qquick.org/licence.html for details.
+'''
+
+
+
+#====================================================================================================
+# General options
+# All options have default value False
+#====================================================================================================
+
+obfuscate_strings = False		# Don't rely on this for sensitive information
+obfuscated_name_tail = '_jhd_'	# Will be added to all obfuscated names to avoid clashes with plain names
+plain_marker = '_jhd_'			# Strings or comments containing this marker will not be obfuscated
+
+
+
+#====================================================================================================
+# Extensions of files that should be obfuscated
+# Typically these are files containing Python source code
+# Other files are just copied to the target directory
+#====================================================================================================
+
+source_extensions = '''
+py
+'''
+
+
+
+#====================================================================================================
+# Extensions of files that should not be copied to the target directory
+# Typically these are .pyc files, which could easily be decompiled, breaking obfuscation
+#====================================================================================================
+
+skip_extensions = '''
+pyc
+'''
+
+
+
+#====================================================================================================
+# Modules in sys.path containing identifiers that should not be obfuscated
+# Typically these are installed standard or 3rd party modules of which you have no source code
+# Use dotted names if needed, e.g. include both matplotlib and matplotlib.pyplot
+# 第三方引入的模块不应该被混淆（只需要写模块名称，模块内方法会自动引入）
+#====================================================================================================
+
+external_modules = '''
+collections
+bson
+re
+random
+functools
+abc
+uuid
+bsddb
+urllib
+urllib2
+itertools
+json
+math
+MySQLdb
+os
+sys
+pymongo
+pymongo.operations
+pony
+pony.orm
+time
+datetime
+ConfigParser
+gzip
+traceback
+shutil
+'''
+
+
+
+#====================================================================================================
+# Relative path + name of Python source files containing identifiers that should not be obfuscated
+# Typically these are human readable settings files loaded and exec'ed at runtime by your program
+# Do not use this facility for files that are imported, that's what external_modules is for
+#====================================================================================================
+
+plain_files = '''
+opy_config.txt
+'''
+
+
+
+#====================================================================================================
+# Extra identifiers and module names (as opposed to contents) that should not be obfuscated
+# Probably at least the names of your main modules (so not their filenames) go here
+# （算了还是不装逼了，写中文吧）不想被混淆的变量放到这里
+#====================================================================================================
+
+plain_names = '''
+opy
+Config
+ipdata
+coordinate
+mysqldb
+mongodb
+mongodbIndex
+mongodbRetention
+jhkj123
+setdefaultencoding
+UserActive
+uvfile
+hbtv.uvfile
+UserEvent
+hbtv.UserActive
+yyyymmdd
+hhmm
+datatype
+apptype
+last
+document_class
+tz_aware
+connect
+maxPoolSize
+socketTimeoutMS
+connectTimeoutMS
+serverSelectionTimeoutMS
+waitQueueTimeoutMS
+waitQueueMultiple
+socketKeepAlive
+host
+port
+user
+password
+database
+currentModule
+id
+tm
+event
+pv
+uv
+pagepv
+pageuv
+actionpv
+actionuv
+refid
+pageid
+dur
+durpv
+duruv
+prov
+city
+device
+browser
+ver
+pub
+plat
+eventid
+newcomer
+addnewcomer
+active
+addactive
+uv_active
+uv_in
+pv_in
+uv_1
+uv_2
+uv_3
+uv_4
+uv_5
+uv_6
+uv_7
+uv_8
+uv_9
+uv_10
+uv_gt10
+uv_in
+pv_in
+partset
+uv_part1
+uv_part2
+uv_part3
+uv_part4
+uv_part5
+alluser
+intotal
+pagetotal
+durtotal
+remain_0
+remain_1
+remain_3
+remain_7
+remain_15
+remain_30
+remain_90
+hy_0
+hy_1
+hy_2
+hy_3
+hy_4
+hy_5
+hy_6
+hy_7
+os
+inpv
+pagepv
+sumuv
+ua
+inserttm
+name
+isdel
+bz
+uv_dur
+pv_dur
+dur_total
+uv_lte1min
+uv_lte2min
+uv_lte3min
+uv_lte4min
+uv_lte5min
+uv_lte6min
+uv_lte7min
+uv_lte8min
+uv_lte9min
+uv_lte10min
+uv_gt10min
+partset
+og
+dest
+singleuv
+singlepv
+rounduv
+roundpv
+uv_all
+pv_all
+hour_0
+hour_1
+hour_2
+hour_3
+hour_4
+hour_5
+hour_6
+hour_7
+hour_8
+hour_9
+hour_10
+hour_11
+hour_12
+hour_13
+hour_14
+hour_15
+hour_16
+hour_17
+hour_18
+hour_19
+hour_20
+hour_21
+hour_22
+hour_23
+hourpv_0
+hourpv_1
+hourpv_2
+hourpv_3
+hourpv_4
+hourpv_5
+hourpv_6
+hourpv_7
+hourpv_8
+hourpv_9
+hourpv_10
+hourpv_11
+hourpv_12
+hourpv_13
+hourpv_14
+hourpv_15
+hourpv_16
+hourpv_17
+hourpv_18
+hourpv_19
+hourpv_20
+hourpv_21
+hourpv_22
+hourpv_23
+ahead_total
+between_total
+pv_1
+pv_2
+pv_3
+pv_4
+pv_5
+pv_6
+search_uv
+book_uv
+pay_uv
+searchall
+searchsingle
+searchround
+bookall
+booksingle
+bookround
+searchsingle_booksingle
+searchsingle_bookround
+searchround_booksingle
+searchround_bookround
+rowid
+_table_
+ifdel
+funcnames
+logtype
+Tongji
+TongjiMain
+CustomizeBiqu
+main_biqu
+CombineTableMain
+CombineData
+execute
+fetchall
+'''
+
+#====================================================================================================
+# exclude path:
+# Extra identifiers and path names (just for path) that should be ignore
+# 填写绝对路径
+#====================================================================================================
+
+exclude_paths = '''
+/.svn/
+/.idea/
+/Alarm/
+/Collector/
+/IPService/
+/Obfuscation/
+/Transform/
+/Tests/
+/readme
+'''
