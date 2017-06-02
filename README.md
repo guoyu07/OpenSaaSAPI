@@ -8,5 +8,6 @@ saasapi_clickhouse：用户漏斗、自定义事件留存、交叉事件 后台�
 
 # clickhouse 是啥？<br>
 战斗民主出品，采用列式存储，号称支持万亿级别的OLAP系统。<br>
+实测阿里云主机，4核心单机千万数据连接查询秒出结果。<br>
 
 想了解的可以查看：https://clickhouse.yandex/reference_en.html
